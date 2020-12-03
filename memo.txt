@@ -1,0 +1,53 @@
+1. 安裝
+python 3(建議3.6.10 以上)  ## Python 3.9.0
+pycharm  ## JetBrains\PyCharm Community Edition 2020.2.3\bin\pycharm64.exe
+
+2. 開啟windows 命令提示字元，輸入以下指令
+pip install Django==3.0.3
+django-admin startproject [專案名稱]
+  (建議先將路徑切換到D槽，win10 操作系統碟需要管理員權限)。
+  若找不到django-admin 可以將python及python\Scripts的路徑加入環境變數。
+  ## djProjectManager
+
+3. 環境設定
+  3-1 開啟pycharm，File -> Open 剛剛創建的專案
+  3-2 File -> Settings -> Project -> Python Interpreter
+  3-3 右上齒輪 -> Add (如果有安裝多個python版本可以在這裡選擇)
+  3-4 下方工具列 -> Terminal(前方的user變成venv 才表示有整合成功)
+    ## Microsoft Windows [版本 10.0.18363.1198]
+    (c) 2019 Microsoft Corporation. 著作權所有，並保留一切權利。
+    (venv) C:\
+
+4. 開始
+  4-1 pip install 你需要的套件
+  4-2 若有requirements檔可直接執行 pip installl -r requirements.txt
+  4-3 python manage.py startapp [app 名稱]
+
+5. 執行
+  python manage.py runserver
+
+# 其他常用指令
+  python3 manage.py makemigrations
+  python3 manage.py migrate
+
+  python3 manage.py createsuperuser
+
+
+==== ==== ==== ==== ==== ====
+==== ==== ==== ==== ==== ====
+
+設定 urls     ## djProjectManager/urls.py
+建立專案 urls.py  ## catalog/urls.py
+
+** ORM 基本設定操作介紹請見 djORM.py
+** models.Model 詳細介紹請見 catalog/models.py
+
+
+創建超級用戶(Creating a superuser)
+  python3 manage.py createsuperuser
+
+連上  /admin URL (e.g. http://127.0.0.1:8000/admin)
+並且輸入你的超級用戶的使用者名稱與密碼(你會被重新導向登入頁面，輸入你的帳密後會再回到  /admin URL)
+
+
+
