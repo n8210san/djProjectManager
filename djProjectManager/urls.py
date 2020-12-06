@@ -24,6 +24,7 @@ urlpatterns = [
  https://developer.mozilla.org/zh-TW/docs/Learn/Server-side/Django/skeleton_website
 """
 # Use include() to add paths from the catalog application
+# include() 會在指定的結束字符處分割URL字符串，並將剩餘的子字符串發送到所包含的URLconf 模塊
 from django.conf.urls import include
 urlpatterns += [
     path('catalog/', include('catalog.urls')),
