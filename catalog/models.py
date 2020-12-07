@@ -119,6 +119,7 @@ class Author(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a particular author instance."""
         return reverse('author-detail', args=[str(self.id)])
+# reverse 的目標 一定要在 urls.py 有被設定過
 
     def __str__(self):
         """String for representing the Model object."""

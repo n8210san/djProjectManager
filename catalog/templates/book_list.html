@@ -6,11 +6,13 @@
   <ul>
     {% for book in book_list %}
       <li>
-        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
+        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.作者}})
       </li>
     {% endfor %}
   </ul>
   {% else %}
     <p>There are no books in the library.</p>
-  {% endif %}       
+  {% endif %}
+  <hr>
+  {% if some_data %}<p>{{some_data}} </p>{% endif %}
 {% endblock %}

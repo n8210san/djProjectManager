@@ -1,16 +1,18 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Book List</h1>
-  {% if book_list %}
+  <h1>Author List</h1>
+  {% if object_list %}
   <ul>
-    {% for book in book_list %}
+    {% for author in object_list %}
       <li>
-        <a href="{{ authors.get_absolute_url }}">{{ authors.title }}</a> ({{book.author}})
+        <a name="{{ author }}" href="{{ author.get_absolute_url }}">
+          #{{ author.id }}. {{ author.last_name }}{{ author.first_name }}
+        </a>
       </li>
     {% endfor %}
   </ul>
   {% else %}
-    <p>There are no books in the library.</p>
+    <p>There are no authors in the library.</p>
   {% endif %}       
 {% endblock %}
