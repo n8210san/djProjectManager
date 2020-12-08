@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1> {{ author }} </h1>
+  <!--{ { author.date_of_birth|date:"Y-m-d H:i:s" }}
+  # The format for date objects may not contain time-related format specifiers (found 'H').
+  -->
+  <p><strong>Birth/Death:</strong> {{ author.date_of_birth|date:"Y年 m月 d日" }}~
+    {% if author.date_of_death %}{{ author.date_of_death|date:"Y-m-d" }}{% endif %}
+  </p>
+  <p><strong>Summary:</strong>
+    {% if author.summary %}{{ author.summary }}{% endif %}
+  </p>
+
+  <div style="margin:20px;margin-top:3em;">
+    <h4>Books</h4>
+    <h4> [ {{ books }} ]</h4>
+    <h4> [ {{ book_list }} ]</h4>
+    <h4> [ {{ book_count }} ]</h4>
+    <h4> [ {{ author_count }} ]</h4>
+    {% if book_list %}
+    <ul>
+      {% for book in book_list %}
+        <li>
+          <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.作者}})
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no books by the author.</p>
+    {% endif %}
+  </div>
+{% endblock %}

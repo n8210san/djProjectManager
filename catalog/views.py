@@ -1,4 +1,5 @@
 from django.shortcuts import render
+# from datetime import datetime
 
 # Create your views here.
 
@@ -83,9 +84,10 @@ class AuthorDetailView(generic.DetailView):
     def author_detail_view(request, primary_key):
         try:
             author = Author.objects.get(pk=primary_key)
+            books = Book.objects.all() #.filter(author__exact=primary_key)
         except Author.DoesNotExist:
             raise Http404('Author does not exist')
-        return render(request, '這就可以隨便亂設定.html', context={'author': author})
+        return render(request, '這就可以隨便亂設定.html', context={'author': author, 'book_list': books, 'book_count': Book.objects.all().count(), 'author_count': Author.objects.all().count()})
 
 def authors(request):
     context={

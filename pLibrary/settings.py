@@ -8,6 +8,13 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
+
+要想在網頁上顯示出正確的當地時間有兩種辦法：
+
+1，將USE_TZ設定為False，這樣不管是後臺還是網頁統一使用的都是當地時間
+
+2，將USE_TZ設定為True，這樣的話後臺統一使用的是UTC時間，顯示的問題交給Template模板來進行，{{datetime|date:"Y年m月d日  H:i"}}這樣的東西模板會自動渲染成當地時間的
+
 """
 
 import os
